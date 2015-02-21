@@ -19,11 +19,11 @@ class LegalFooter(unittest.TestCase):
 
     def test_open_legal_footer(self):
         self.main_page.open_page_and_assert_title(MainPageLocators.PRIVACY_FOOTER, "Shapeways | privacy statement")
-        self.main_page.tab_back
+        self.main_page.tab_back()
         self.main_page.open_page_and_assert_title(MainPageLocators.TERMS_FOOTER, "Shapeways | terms & conditions")
-        self.main_page.tab_back
+        self.main_page.tab_back()
         self.main_page.open_page_and_assert_title(MainPageLocators.POLICY_FOOTER, "Shapeways | content policy")
-        self.main_page.tab_back
+        self.main_page.tab_back()
 
 
 

@@ -16,13 +16,18 @@ class TestAllTheThings(unittest.TestCase):
 
     def test_all_the_things(self):
 
+
         self.main_page.open_page_and_assert_title(MainPageLocators.BIG_BASKET, "Test All The Things! by ShapewaysCodeTest on Shapeways")
+        self.main_page.tab_back()
 
         self.main_page.open_page_and_assert_title(MainPageLocators.TEST_ALL_THE_THINGS, "Test All The Things! by ShapewaysCodeTest on Shapeways")
+        self.main_page.tab_back()
 
         self.main_page.open_page_and_assert_title(MainPageLocators.CODETEST, "ShapewaysCodeTest on Shapeways")
+        self.main_page.tab_back()
 
         self.main_page.open_page_and_assert_title(MainPageLocators.VISIT_SHOP, "Test All The Things! by ShapewaysCodeTest on Shapeways")
+        self.main_page.tab_back()
 
 
 

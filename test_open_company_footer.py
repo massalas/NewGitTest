@@ -28,6 +28,7 @@ class CompanyFooter(unittest.TestCase):
         self.main_page.open_page_and_assert_title(MainPageLocators.CAREERS_FOOTER, "Careers at Shapeways")
         self.main_page.tab_back()
         self.main_page.open_page_and_assert_title(MainPageLocators.DEVELOPERS_FOOTER, "Make Apps with the Shapeways 3D Printing API")
+        self.main_page.tab_back()
 
 
 

@@ -24,7 +24,7 @@ def suite():
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_mid_pages))
     test_suite.addTest(test_loader.loadTestsFromModule(test_dropdown_options))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_company_footer))
-    #test_suite.addTest(test_loader.loadTestsFromModule(test_open_top_pages))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_open_top_pages))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_help_footer))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_social_footer))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_legal_footer))
