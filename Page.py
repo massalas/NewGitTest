@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from decimal import Decimal
 import time
 
@@ -23,7 +24,15 @@ class MainPage(object):
         self.accept_next_alert = True
 
 
-    #    sauce_url = "http://massalas:28c5a380-a6c3-4ae1-8a19-fcf7abc381d1@ondemand.saucelabs.com:80/wd/hub"
+        """Destructor!"""
+    def __del__(self):
+        self.driver.close()
+
+        """ Setup to be used when cross browser testing takes place """
+#    def setUp(self):
+        # self.driver = webdriver.Firefox()
+
+        #    sauce_url = "http://massalas:28c5a380-a6c3-4ae1-8a19-fcf7abc381d1@ondemand.saucelabs.com:80/wd/hub"
     #   desired_capabilities = {
     #   'platform': "OS X 10.10",
     #   'browserName': "Firefox",
@@ -41,14 +50,6 @@ class MainPage(object):
 
     #   sauce_client.jobs.update_job(self.driver.session_id, passed=True)
 
-        """Destructor!"""
-    def __del__(self):
-        self.driver.close()
-
-        """ Setup to be used when cross browser testing takes place """
-#    def setUp(self):
-        # self.driver = webdriver.Firefox()
-
 
     def is_title_matches(self):
         return "TapHandle" in self.driver.title
@@ -56,22 +57,28 @@ class MainPage(object):
     def tab_back(self):
         self.driver.back()
 
+    def close_browser(self):
+        self.driver.close()
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException, e: return False
         return True
 
-        """ Simply clicks at an element using the css selector."""
+        """ Simply clicks at an element using the css selector. """
     def click_element(self, link):
         element = self.driver.find_element_by_css_selector(link)
         element.click()
 
 
-    """ Simply clicks at an element using id"""
+    """ Simply clicks at an element using id. """
     def click_element_by_id(self, link):
         element = self.driver.find_element_by_id(link)
         element.click()
 
+    """ Deletion of cookies. """
+    def delete_cookies(self):
+        self.driver.delete_all_cookies()
 
         """ Simply selects the SignIN link of main page. """
     def click_sign_in_link(self):
@@ -335,8 +342,9 @@ class MainPage(object):
             raise
 
 
-        """ Function below opens the tab and verifies that it has been loaded correctly."""
+
     def open_tab_and_assert_title(self, element_locator, page_title):
+        """ Function below opens the tab and verifies that it has been loaded correctly."""
         parent_tab = self.driver.current_window_handle
 
         try: page_icon = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_css_selector(element_locator))           # Page icon
@@ -440,21 +448,51 @@ class MainPage(object):
 
 
         """ The function below types in the name of a country so as to change the currency to the one of the given country."""
-    def change_currency(self, country):
+    def change_currency_to_country(self, country):
         country_field = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_id(MainPageLocators.CURRENCY_COUNTRY_ID))
-        country_field.clear()
+        country_field.click()
+
+
         country_field.send_keys(country)
+        time.sleep(1)
         submit = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_id(MainPageLocators.SUBMIT_ID))
         submit.click()
-
-
-        """ Function below verifies that the currency changed in the price field of the main page."""
-    def verify_currency_changed(self, currency_symbol):
-        self.verificationErrors = []
         time.sleep(2)
 
+
+    def encode(self, currency):
+        global symbol_encoded
+
+        if type(currency) == str:
+        # Ignore errors even if the string is not proper UTF-8 or has
+        # broken marker bytes.
+        # Python built-in function unicode() can do this.
+            symbol_encoded = currency.encode("ascii", "replace")
+
+           # symbol_encoded = unicode(currency, "utf-8", errors="ignore")
+        else:
+        # Assume the value object has proper __unicode__() method
+            symbol_encoded = unicode(currency)
+
+
+
+
+        # self.driver(currency).encode('ascii')
+
+        """ Function below verifies that the currency changed in the price field of the main page."""
+    def verify_currency_changed(self):
+        self.verificationErrors = []
+        time.sleep(2)
+        self.move_mouse_to_element_and_click(MainPageLocators.COUNTRY_FLAG)
+
+        currency_symbol = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_id(MainPageLocators.CURRENCY_SYMBOL_ID)).text
+
+        self.encode(currency_symbol)
+
+
+
         price = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_css_selector(MainPageLocators.PRICE_FIELD)).text
-        try: assert currency_symbol in price
+        try: assert symbol_encoded in price
         except AssertionError as e: self.verificationErrors.append(str(e))
         print price
 
@@ -475,15 +513,15 @@ class MainPage(object):
         time.sleep(2)
 
         original_price = WebDriverWait(self.driver, 10).until(lambda driver : self.driver.find_element_by_css_selector(MainPageLocators.PRICE_FIELD)).text
-        try: assert "" in original_price
-        except AssertionError as e: self.verificationErrors.append(str(e))
-        print original_price
+        # try: assert "" in original_price
+        # except AssertionError as e: self.verificationErrors.append(str(e))
+        # print original_price
 
-        price_without_symbol = (original_price.replace('$', ' '))
+        price_without_symbol = (original_price.replace('?', ' '))
         price = Decimal(price_without_symbol)
         print "The price is: %f" % price
 
-        correct_price_in_euro = (price * 0.880080)
+        correct_price_in_euro = (cost * 0.880080)
 
         if price == correct_price_in_euro:
             print "The USD to EURO converter works as expected. The price is: %f" % price

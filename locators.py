@@ -92,7 +92,7 @@ class MainPageLocators(object):
     VISIT_SHOP = ".send-message>.visit-shop.viewmore-arrow"             # Visit shop icon
     COUNTRY_FLAG = ".country-flag>img"                                  # Country Flag icon
     CURRENCY_SYMBOL_ID = "current-currency-symbol"                      # Currency Symbol field
-    CURRENCY_COUNTRY_ID = "current-currency-country"                    # Currency Country field
+    CURRENCY_COUNTRY_ID = "autocompleteCountry"                         # Currency Country field
     SUBMIT_ID = "submitChangeCountryCurrency"                           # Submit Country Currency Button
     PRICE_FIELD = ".product-config-chooser.hide-tablet>.material-selected>\
     .material-list-item-selected.product-info>.price.bottom-collapse"   # Price on top of buy button

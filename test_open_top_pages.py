@@ -9,9 +9,9 @@ class BottomPages(unittest.TestCase):
         self.main_page = Page.MainPage(webdriver.Firefox())
         print "Test Open Top Pages is running!"
         assert self.main_page.is_title_matches(), "Shapeways title doesn't match"
-        self.main_page.click_sign_in_link()
-        self.main_page.login()
-        time.sleep(3)
+        #.main_page.click_sign_in_link()
+        #self.main_page.login()
+        #time.sleep(3)
 
 
 
@@ -35,7 +35,8 @@ class BottomPages(unittest.TestCase):
 
 
     def tearDown(self):
-        self.main_page.logout()
+        self.main_page.close_browser()
+        #self.main_page.logout()
 
 
 if __name__ == "__main__":

@@ -24,6 +24,7 @@ class WishList(unittest.TestCase):
 
     def tearDown(self):
         self.main_page.logout()
+        self.main_page.close_browser()
 
 if __name__ == "__main__":
     unittest.main()
