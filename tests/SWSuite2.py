@@ -15,13 +15,17 @@ import test_add_list
 import test_click_question
 import test_social_media
 import test_all_the_things
+import test_open_community_footer
+import test_open_design_footer
+import test_open_sell_footer
+import test_open_shop_footer
+import test_buy
 
 
 def suite():
     test_loader = unittest.TestLoader()
-    test_suite = test_loader.loadTestsFromModule(test_buy)
+    test_suite = test_loader.loadTestsFromModule(test_open_mid_pages)
     test_suite.addTest(test_loader.loadTestsFromModule(test_add_favorite))
-    test_suite.addTest(test_loader.loadTestsFromModule(test_open_mid_pages))
     test_suite.addTest(test_loader.loadTestsFromModule(test_dropdown_options))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_company_footer))
     test_suite.addTest(test_loader.loadTestsFromModule(test_open_top_pages))
@@ -34,6 +38,12 @@ def suite():
     test_suite.addTest(test_loader.loadTestsFromModule(test_click_question))
     test_suite.addTest(test_loader.loadTestsFromModule(test_social_media))
     test_suite.addTest(test_loader.loadTestsFromModule(test_all_the_things))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_open_community_footer))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_open_design_footer))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_open_sell_footer))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_open_shop_footer))
+    test_suite.addTest(test_loader.loadTestsFromModule(test_buy))
+
 
     return test_suite
 

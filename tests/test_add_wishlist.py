@@ -1,13 +1,20 @@
+import sys
+sys.path.append("../")
+sys.path.append("../../")
+from objects import Page
+from config.locators import MainPageLocators, OtherPageLocators
+import unittest
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-import Page, time, unittest
+import time
 
 
 class WishList(unittest.TestCase):
 
     def setUp(self):
-        self.main_page = Page.MainPage(webdriver.Firefox())
+        self.driver = webdriver.Firefox()
+        self.main_page = Page.MainPage(self.driver)
         print "Test case Wishlist is running!"
+        print "*" * 10
         assert self.main_page.is_title_matches(), "Shapeways title doesn't match"
         self.main_page.click_sign_in_link()
         self.main_page.login()
@@ -24,7 +31,7 @@ class WishList(unittest.TestCase):
 
     def tearDown(self):
         self.main_page.logout()
-        self.main_page.close_browser()
+        self.driver.close()
 
 if __name__ == "__main__":
     unittest.main()

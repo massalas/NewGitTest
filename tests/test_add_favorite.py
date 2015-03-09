@@ -1,20 +1,26 @@
+import sys
+sys.path.append("../")
+sys.path.append("../../")
+from objects import Page
+from config.locators import MainPageLocators, OtherPageLocators
 import unittest
 from selenium import webdriver
-from locators import OtherPageLocators
-import Page, time
+import time
 
 class AddFavorite(unittest.TestCase):
 
     def setUp(self):
-        self.main_page = Page.MainPage(webdriver.Firefox())
+        self.driver = webdriver.Firefox()
+        self.main_page = Page.MainPage(self.driver)
         assert self.main_page.is_title_matches(), "Shapeways title doesn't match"
         self.main_page.click_sign_in_link()
         self.main_page.login()
-        time.sleep(5)
+        time.sleep(3)
 
         """Selects the product and records the favorite status."""
     def test_a_favorite_status(self):
         print "Test case Add Favorite is running!"
+        print "*" * 10
         print "Getting the status of the product."
         self.main_page.select_black_product()
         self.main_page.fav_status_before_addition()
@@ -30,7 +36,7 @@ class AddFavorite(unittest.TestCase):
         self.main_page.fav_status_after_addition()
         self.main_page.favorited_text_assertion()
 
-        """Verifies that the product has been added to favorites and the the text
+        """ Verifies that the product has been added to favorites and the the text
          has changed to "Favorited"."""
     def test_c_favorite_verifications(self):
         print "Verification that fields have been updated properly."
@@ -41,7 +47,7 @@ class AddFavorite(unittest.TestCase):
 
 
 
-        """Add the white product to favorites and also get's its status for verifications."""
+        """ Add the white product to favorites and also get's its status for verifications."""
     def test_d_add_white_favorite(self):
         print "Adding white favorite and verifying that text has been updated."
         self.main_page.select_white_product()
@@ -51,7 +57,7 @@ class AddFavorite(unittest.TestCase):
         self.main_page.favorited_text_assertion()
 
 
-        """Goes to the Favorites & Wishlist page and removes the product from the favorites."""
+        """ Goes to the Favorites & Wishlist page and removes the product from the favorites."""
     def test_e_remove_favorite(self):
         print "Removing favorite"
         self.main_page.go_to_favorites_wishlist()
@@ -61,7 +67,7 @@ class AddFavorite(unittest.TestCase):
 
     def tearDown(self):
         self.main_page.logout()
-        self.main_page.close_browser()
+        self.driver.close()
 
 
 if __name__ == "__main__":

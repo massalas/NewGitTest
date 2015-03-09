@@ -38,30 +38,33 @@ class MainPageLocators(object):
     GIFT_TOP_ICON = (".dropdown>a[href*='gift']")                       # Gift icon at the top of the page
     APPS_TOP_ICON = (".dropdown>a[href*='creator']")                    # Apps icon at the top of the page
     FEED_TOP_ICON = (".inner>ul>li>a[href*='feed']")                    # Feed icon at the top of the page
-    BLOG_TOP_ICON = (".inner>ul>li>a[href*='blog']")                    # Blog icon at the top of the page
+    BLOG_LINK = (".footer-link>a[href*='blog']")                        # Blog icon at the top of the page
     NOTIFICATIONS_DROPDOWN = (".my-account>ul>li>a[href*='notifications']")                 # Notifications option top right dropdown menu
     MYFEED_DROPDOWN = (".my-account>ul>li>a[href*='feed']")             # My feed option top right dropdown menu
     ORDERS_DROPDOWN = (".my-account>ul>li>a[href*='orders']")           # Orders option top right dropdown menu
     MODELS_DROPDOWN = (".my-account>ul>li>a[href*='models']")           # Models option top right dropdown menu
     PROFILE_DROPDOWN = (".my-account>ul>li>a[href*='designer']")        # Public profile option top right dropdown menu
     SETTINGS_DROPDOWN = (".my-account>ul>li>a[href*='settings']")       # Settings option top right dropdown menu
-    ABOUT_US_FOOTER = ("#footer-about>ul>li>a[href*='about']")          # About us link at the page footer
+    ABOUT_US_FOOTER = (".footer-link>a[href*='about']")                 # About us link at the page footer
     HOW_WORKS_FOOTER = ("#footer-about>ul>li>a[href*='works']")         # How the company works link at the page footer
-    PRESS_FOOTER = ("#footer-about>ul>li>a[href*='press']")             # Press link at the page footer
+    PRESS_FOOTER = (".footer-link>a[href*='press']")                    # Press link at the page footer
     CONTACT_US_FOOTER = ("#footer-about>ul>li>a[href*='contact']")      # Contact us link at the page footer
-    CAREERS_FOOTER = ("#footer-about>ul>li>a[href*='jobs']")            # Careers link at the page footer
+    CAREERS_FOOTER = (".footer-link>a[href*='job']")                    # Careers link at the page footer
     DEVELOPERS_FOOTER = ("#footer-about>ul>li>a[href*='dev']")          # Developers link at the page footer
-    HELP_CENTER_FOOTER = ("#footer-help>ul>li>a[href*='support?']")     # Help Center link at the page footer
+    HELP_CENTER_FOOTER = (".footer-link>a[href*='support?li']")         # Help Center link at the page footer
+    CONTACT_US_FOOTER = (".footer-link>a[href*='contact']")             # Contact us link at the page footer
     CONTACT_SUPPORT_FOOTER = ("#footer-help>ul>li>a[href*='service']")  # Contact Support link at the page footer
     FAQ_FOOTER = ("#footer-help>ul>li>a[href*='faq']")                  # FAQs link at the page footer
     SHIPPING_INFO_FOOTER = ("#footer-help>ul>li>a[href*='shipping']")   # Shipping Info link at the page footer
+    MATERIAL_STATUS = (".footer-link>a[href*='material-st']")           # Material status link at the page footer
     TUTORIALS_FOOTER = ("#footer-help>ul>li>a[href*='tutorials']")      # Tutorials link at the page footer
-    TWITTER_FOOTER = (".icon-twitter.footer-icon")                      # Twitter icon at the page footer
-    FLICKR_FOOTER = (".icon-flickr.footer-icon")                        # Flickr icon at the page footer
-    MEETUP_FOOTER = (".icon-meetup.footer-icon")                        # Meetup icon at the page footer
-    FACEBOOK_FOOTER = (".icon-facebook.footer-icon")                    # Facebook icon at the page footer
-    TUMBLR_FOOTER = (".icon-tumblr.footer-icon")                        # Tumblr icon at the page footer
-    YOUTUBE_FOOTER = (".icon-youtube.footer-icon.last")                 # Youtube icon at the page footer
+    TWITTER_FOOTER = (".icon-twitter.breathe-right")                    # Twitter icon at the page footer
+    INSTAGRAM_FOOTER = (".icon-instagram.breathe-right")                # Instagram icon at the page footer
+    FLICKR_FOOTER = (".icon-flickr")                                    # Flickr icon at the page footer
+    MEETUP_FOOTER = (".icon-meetup.breathe-right")                      # Meetup icon at the page footer
+    FACEBOOK_FOOTER = (".icon-facebook.breathe-right")                  # Facebook icon at the page footer
+    TUMBLR_FOOTER = (".icon-tumblr.breathe-right")                      # Tumblr icon at the page footer
+    YOUTUBE_FOOTER = (".icon-youtube.breathe-right")                    # Youtube icon at the page footer
     USERNAME_TWITTER_FOOTER = (".username")                             # Twitter username link at the page footer
     QUOTE_FOOTER = (".quote>p>a[href*='shpws']")                        # Quote link at the page footer
     TWITTER_PIC_FOOTER = (".quote>p>a[href*='twitter']")                # Twitter pic link at the page footer
@@ -94,8 +97,38 @@ class MainPageLocators(object):
     CURRENCY_SYMBOL_ID = "current-currency-symbol"                      # Currency Symbol field
     CURRENCY_COUNTRY_ID = "autocompleteCountry"                         # Currency Country field
     SUBMIT_ID = "submitChangeCountryCurrency"                           # Submit Country Currency Button
-    PRICE_FIELD = ".product-config-chooser.hide-tablet>.material-selected>\
-    .material-list-item-selected.product-info>.price.bottom-collapse"   # Price on top of buy button
+    PRICE_FIELD = ".product-config-chooser.hide-tablet>.material-selected>.material-list-item-selected>.price"
+                                                                        # Price on top of buy button
+    SHOP_GIFT_GUIDE = ".btn-primary"                                    # Shop gift guide button
+    DRONE_PARTS = ".dropdown>ul>li>a[href*='drones']"                   # Drone Parts submenu
+    COMPANY_ELEMENT = ("#footer-about>h5")                              # Company element at the bottom of the page
+    BECOME_PARTNER = (".footer-link>a[href*='partner']")                # Become a partner link
+    GETTING_STARTED = (".footer-link>a[href*='works']")                 # Getting started link at the page footer
+    MATERIALS_FOOTER = (".footer-link>a[href*='materials']")            # Materials link at the page footer
+    HIRE_DESIGNER = (".footer-link>a[href*='hire']")                    # Hire designer link at the page footer
+    RAPID_PROTO = (".footer-link>a[href*=rapid]")                       # Rapid prototyping link at the page footer
+    CREATOR_APPS = (".footer-link>a[href*='creator']")                  # Creator apps link at the page footer
+    MAKER_TUTORIALS = ("#footer-design>ul>.footer-link>a[href*='tutorials']")
+                                                                        # Maker tutorials link at the page footer
+    OPEN_SHOP = (".footer-link>a[href*='open']")                        # Open shop link at the page footer
+    DEVELOPER_API = (".footer-link>a[href*='developer']")               # Developers API link at the page footer
+    SHOPS_TIPS = (".footer-link>a[href*='shops']")                      # Shops Tips & Tutorials link at the page footer
+    OFFER_DESING = (".footer-link>a[href*='zIn1fcEOQ0b4DRP']")          # Offer Design Services link at the page footer
+    FORUMS_FOOTER = (".footer-link>a[href*='forum']")                   # Forums link at the page footer
+    EVENTS_FOOTER = (".footer-link>a[href*='events']")                  # Events link at the page footer
+    JOIN_CREW = (".footer-link>a[href*='crew']")                        # Join the crew link at the page footer
+    EDUCATION_FOOTER = (".footer-link>a[href*='education']")            # Education link at the page footer
+    MARKET_PLACE = ("#footer-shop>ul>li:nth-child(1)>a")                # Marketplace link at the page footer
+    GIFT_GUIDE = ("#footer-shop>ul>li:nth-child(2)>a")                  # Gift guide link at the page footer
+    BETA_PRODUCTS = ("#footer-shop>ul>li:nth-child(3)>a")               # Beta product link at the page footer
+    GIFT_CARDS = ("#footer-shop>ul>li:nth-child(4)>a")                  # Gift cards link at the page footer
+    CLOSE_CHECKOUT = (".close-button")                                  # Close button of checkout pop-up
+    CART_COUNT_ID = ("cartcount")                                       # Cartcount element
+    CART_ICON = (".icon-cart")                                          # Cart icon in main page
+    CHECKOUT_TOTAL_ITEMS = ("#popupTotalItems")                         # Total field in checkout pop-up
+    SUBTOTAL = (".tally-total-col-r>strong")                            # Subtotal element in the checkout pop-up
+    EDIT_CART = (".btn-white")                                          # Edit cart button in checkout pop-up
+
 
 
 
@@ -127,6 +160,100 @@ class OtherPageLocators(object):
     BLACK_REMOVE = (".remove-model>a[hashid='7360379']")                # Remove button for the black product
     WHITE_DESCRIPTION = (".material.hash-7360377")                      # Description for the white product
     WHITE_REMOVE = (".remove-model>a[hashid='7360377']")                # Remove button for the white product
+    TAG = (".collection-info>h1")                                       # Tag element
+    TEST_ALL_TAG = (".hide-mobile.shop-title-header")                   # Test all pages tag header
+    CODETEST_TAG = (".username.shop-title-header")                      # Codetests tag
+    ABOUT_TAG = (".span-9>h1")                                          # About us tag
+    HOW_TAG = ("h1.text-white")                                         # How Shapeways tag
+    EMAIL_US = (".action-button")                                       # Email Us button
+    CAREERS_CONTAINER = (".container>h1")                               # Careers container
+    DEVELOPERS_CONTAINER = (".container>h1")                            # Developers container
+    HELP_CONTAINER = (".box>h1")                                        # Help tag
+    SUPPORT_CONTAINER = (".container>h1")                               # Contact support container
+    FAQ_CONTAINER = (".box>h1")                                         # FAQ container
+    SHIPPING_CONTAINER = (".box>h1")                                    # Shipping container
+    TUTORIAL_CONTAINER = (".col-1-1>h1")                                # Tutorial container
+    PRIVACY_CONTAINER = (".container>h1")                               # Privacy container
+    TERMS_CONTAINER = (".container>h1")                                 # Terms container
+    CONTENT_POLICY_CONTAINER = (".container>h1")                        # Content Policy container
+    ART_TAG = (".collection-info>h1")                                   # Art tag
+    ACCESSORIES_CONTAINER = (".parent-cat")                             # Accessories container
+    SCULPTURES_CONTAINER = (".active[href*='sculptures']")              # Sculptures container
+    TAG_ACCESSORIES = (".search-results-query-count.span-12>h2")        # Second Accessories tag
+    BEER_TAG = (".search-results-query-count.span-12>h2")               # Beer tag
+    GRUMPY_TAG = (".search-results-query-count.span-12>h2")             # Grumpy tag
+    HOME_TAG = (".search-results-query-count.span-12>h2")               # Home tag
+    HOMEBREW_TAG = (".search-results-query-count.span-12>h2")           # Homebrew tag
+    TWITTER_HEADER = (".ProfileHeaderCard-nameLink.u-textInheritColor.js-nav.ProfileHeaderCard-nameWithBadges--1")  # Twitter Header
+    FLICKR_ANCHOR = (".sn-navitem.sn-photostream.sn-active>a")          # Flickr anchor
+    MEETUP_LOCALITY = (".locality")                                     # Meetup locality
+    FB_ELEMENT = (".mvm.fsl")                                           # FB page element
+    TUMBLR_ELEMENT = (".follow>a")                                      # Tumblr element
+    UTUBE_ELEMENT = (".display-name.no-count>span")                     # Utube anchor
+    SHOP_ANCHOR = ("h1.text-white")                                     # Shop page anchor
+    DESIGN_ANCHOR = ("h1.text-white")                                   # Design page anchor
+    SELL_ANCHOR = (".span-5.last>h4>a")                                 # Sell page anchor
+    BLOG_TAG = (".text-center>h2>a")                                    # Blog tag
+    PARTNER_TAG = (".text-center>h1")                                   # Become partner page tag
+    MATERIAL_STATUS_TAG = (".container>h1")                             # Material status page tag
+    CONTACT_US_TAG = (".clearfix>h1")                                   # Contact us page tag
+    INSTAGRAM_TAG = (".logo>a")                                         # Instagram page tag
+    GETTING_STARTED_ANCHOR = ("h1.text-white")                          # Getting started page anchor
+    MATERIALS_ANCHOR = (".breathe-bottom")                              # Materials page anchor
+    HIRE_DESIGNER_ANCHOR = (".text-white.breathe-bottom")               # hire designer page anchor
+    RAPID_ANCHOR = ("h2.text-white")                                    # Rapid page anchor
+    CREATOR_ANCHOR = ("h1.text-white")                                  # Creator page anchor
+    MAKER_TUTORIAL_ANCHOR = (".col-1-1>h1")                             # Maker tutorial anchor
+    OPEN_SHOP_ANCHOR = (".text-white>strong")                           # Open shop page anchor
+    DEVELOPER_API_ANCHOR = (".container>h1")                            # Developer API page anchor
+    SHOP_TIPS_ANCHOR = (".col-1-1>h1")                                  # Shop Tips & Tutorials page anchor
+    OFFER_DESIGN_ANCHOR = (".ss-form-title")                            # Offer Design page anchor
+    FORUM_ANCHOR = (".CatLink")                                         # Forum page anchor
+    EVENTS_ANCHOR = (".container>h1")                                   # Events page anchor
+    JOIN_CREW_ANCHOR = ("h1.text-white")                                # Join the crew page anchor
+    EDUCATION_ANCHOR = (".text-white.weight-normal")                    # Education page anchor
+    MARKETPLACE_ANCHOR = ("h1.text-white")                              # Marketplace page anchor
+    GIFT_GUIDE_ANCHOR = ("h1.text-white")                               # Marketplace page anchor
+    BETA_PAGE_ANCHOR = (".text-center.dark-text>h1")                    # Beta page anchor
+    GIFT_CARDS_ANCHOR = ("h1.text-center")                              # Gift cards page anchor
+    SHIPPING_INFO_ANCHOR = (".currency")                                # Shipping info page anchor
+    SHIPPING_CONTINUE_BUTTON = ("#checkout-top-head>.col-1-4>.btn-primary")
+                                                                        # Continue button in the shipping info page
+    REMOVE_ITEM = (".item-action-links>a")                              # Remove button in cart page
+    YOUR_CART_ANCHOR = (".currency")                                    # Your cart anchor in cart page
+
+
+class HappyPageDict(object):
+
+    element = {
+            'First' : {
+                        "locator" : MainPageLocators.FORUMS_FOOTER,
+                        "title" : "Shapeways 3D Printing Forums",
+                        "anchor" : OtherPageLocators.FORUM_ANCHOR,
+                        "tag" : "Shapeways"
+                        },
+            'Second' : {
+                        "locator" : "MainPageLocators.EVENTS_FOOTER",
+                        "title" : "Shapeways | Events",
+                        "anchor" : "OtherPageLocators.EVENTS_ANCHOR",
+                        "tag" : "Community Events and Meetups"
+                        },
+            'Third' : {
+                        "locator" : "MainPageLocators.JOIN_CREW",
+                        "title" : "Join the World's Largest 3D Printing Community - Shapeways",
+                        "anchor" : "OtherPageLocators.JOIN_CREW_ANCHOR",
+                        "tag" : "Shapeways 3D Printing Community"
+                        },
+            'Fourth' : {
+                        "locator" : "MainPageLocators.EDUCATION_FOOTER",
+                        "title" : "Shapeways Education Program",
+                        "anchor" : "OtherPageLocators.EDUCATION_ANCHOR",
+                        "tag" : "Sign up for Shapeways Education Program to save on your 3D prints and be a part of the world's largest 3D printing community"
+                        }
+                }
+
+
+
 
 
 

@@ -6,7 +6,8 @@ import Page, time
 class CountryFlag(unittest.TestCase):
 
     def setUp(self):
-        self.main_page = Page.MainPage(webdriver.Firefox())
+        self.driver = webdriver.Firefox()
+        self.main_page = Page.MainPage(self.driver)
        	self.main_page.delete_cookies()
         print "Test Flag is running!"
         assert self.main_page.is_title_matches(), "Shapeways title doesn't match"
@@ -22,8 +23,8 @@ class CountryFlag(unittest.TestCase):
 
 
 
-
-
+    def tearDown(self):
+        self.driver.close()
 
 
 if __name__ == "__main__":
