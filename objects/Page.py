@@ -216,7 +216,7 @@ class MainPage(object):
             #assert (cart_count + 1) == new_cart_count
             #print "Addition of item has been asserted!"
 
-        sub_total = self.driver.find_element_by_css_selector(MainPageLocators.SUBTOTAL).text            # Subtotal element on the top right corner inside the pop-up
+        sub_total = WebDriverWait(self.driver, 5).until(lambda driver : self.driver.find_element_by_css_selector(MainPageLocators.SUBTOTAL)).text            # Subtotal element on the top right corner inside the pop-up
         sub_total = (sub_total.replace('$', ' '))
         sub_total = Decimal(sub_total)
         print "Subtotal is: %f" % sub_total
